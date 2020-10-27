@@ -1,5 +1,5 @@
 {
-  "name": "tandemApp2",
+  "name": "tandemApp",
   "private": true,
   "dependencies": {
     "@babel/preset-react": "^7.12.1",
@@ -19,6 +19,13 @@
   },
   "version": "0.1.0",
   "devDependencies": {
+    "eslint": "^7.12.1",
+    "eslint-config-airbnb": "^18.2.0",
+    "eslint-loader": "^4.0.2",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-react": "^7.21.5",
+    "eslint-plugin-react-hooks": "^4.2.0",
     "webpack-dev-server": "^3.11.0"
   }
 }
