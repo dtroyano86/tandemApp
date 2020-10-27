@@ -8,6 +8,7 @@ import Footer from './layout/footer';
 import Header from './layout/header';
 import Home from './home';
 import QuestionPage from './questionPage';
+import ScoresPage from './scoresPage';
 
 const app = () => {
   const [score, setScore] = useState(0);
@@ -18,7 +19,10 @@ const app = () => {
         <Row>
           <Switch>
             <Route path="/trivia">
-              <QuestionPage setScore={setScore} />
+              <QuestionPage setScore={setScore} score={score} />
+            </Route>
+            <Route path="/scores">
+              <ScoresPage />
             </Route>
             <Route path="/">
               <Home setScore={setScore} />
