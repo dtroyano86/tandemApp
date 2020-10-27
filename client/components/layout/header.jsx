@@ -12,11 +12,8 @@ const Header = ({ score }) => (
     <Navbar.Toggle aria-controls="header-navbar" />
     <Navbar.Collapse id="header-navbar">
       <Nav>
-        <LinkContainer to="/trivia">
-          <Nav.Link>Trivia</Nav.Link>
-        </LinkContainer>
         <LinkContainer to="/">
-          <Nav.Link>Home</Nav.Link>
+          <Nav.Link>Scores</Nav.Link>
         </LinkContainer>
       </Nav>
       <Navbar.Text>
