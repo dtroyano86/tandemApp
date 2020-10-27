@@ -8,9 +8,22 @@ import Question from './question';
 
 const QuestionPage = ({ setScore }) => {
   const [questionList, setQuestionList] = useState([]);
+  const [current, setCurrent] = useState(0);
 
   const beginQuiz = () => {
-    setQuestionList(trivia);
+    setCurrent(0);
+    const potentials = [];
+    trivia.forEach((item) => potentials.push(item));
+    const questions = [];
+    while (questions.length < 10) {
+      const index = Math.floor(Math.random() * potentials.length);
+      questions.push(potentials.splice(index, 1)[0]);
+    }
+    setQuestionList(questions);
+  };
+
+  const submitAnswer = (answer) => {
+    console.log(answer);
   };
 
   return (
@@ -23,7 +36,7 @@ const QuestionPage = ({ setScore }) => {
           </>
         )
         : (
-          <Question />
+          <Question submitAnswer={submitAnswer} question={questionList[current]} />
         )}
     </Jumbotron>
   );
