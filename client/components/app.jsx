@@ -19,7 +19,7 @@ const app = () => {
         <Row>
           <Switch>
             <Route path="/trivia">
-              <QuestionPage setScore={setScore} />
+              <QuestionPage setScore={setScore} score={score} />
             </Route>
             <Route path="/scores">
               <ScoresPage />
