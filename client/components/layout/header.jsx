@@ -2,14 +2,19 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
+import { LinkContainer } from 'react-router-bootstrap';
 
 const Header = ({ score }) => (
   <Navbar>
-    <Navbar.Brand href="/">Home</Navbar.Brand>
+    <LinkContainer to="/">
+      <Navbar.Brand>Home</Navbar.Brand>
+    </LinkContainer>
     <Navbar.Toggle aria-controls="header-navbar" />
     <Navbar.Collapse id="header-navbar">
       <Nav>
-        <Nav.Link link="/score">Scores</Nav.Link>
+        <LinkContainer to="/">
+          <Nav.Link>Scores</Nav.Link>
+        </LinkContainer>
       </Nav>
       <Navbar.Text>
         Score:

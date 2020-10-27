@@ -7,6 +7,7 @@ import Row from 'react-bootstrap/Row';
 import Footer from './layout/footer';
 import Header from './layout/header';
 import Home from './home';
+import QuestionPage from './questionPage';
 
 const app = () => {
   const [score, setScore] = useState(0);
@@ -16,6 +17,9 @@ const app = () => {
         <Header score={score} />
         <Row>
           <Switch>
+            <Route path="/trivia">
+              <QuestionPage setScore={setScore} />
+            </Route>
             <Route path="/">
               <Home setScore={setScore} />
             </Route>
