@@ -23,8 +23,12 @@ const QuestionPage = ({ setScore }) => {
   };
 
   const submitAnswer = (answer) => {
-    console.log(answer);
+    if (questionList[current].correct === answer) {
+      setScore((prev) => prev + 1);
+    }
   };
+
+  const nextQuestion = () => setCurrent((prev) => prev + 1);
 
   return (
     <Jumbotron>
@@ -36,7 +40,11 @@ const QuestionPage = ({ setScore }) => {
           </>
         )
         : (
-          <Question submitAnswer={submitAnswer} question={questionList[current]} />
+          <Question
+            submitAnswer={submitAnswer}
+            question={questionList[current]}
+            nextQuestion={nextQuestion}
+          />
         )}
     </Jumbotron>
   );

@@ -4,11 +4,14 @@ import Button from 'react-bootstrap/Button';
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import Row from 'react-bootstrap/Row';
 
-const Question = ({ question, submitAnswer }) => {
+const Question = ({ question, submitAnswer, nextQuestion }) => {
   const [selected, setSelected] = useState(false);
   const [options, setOptions] = useState([]);
+  const [answered, setAnswered] = useState(false);
 
   useEffect(() => {
+    setSelected(false);
+    setAnswered(false);
     const newOptions = [];
     const potentials = [...question.incorrect];
     potentials.push(question.correct);
@@ -18,7 +21,25 @@ const Question = ({ question, submitAnswer }) => {
       newOptions.push(potentials.splice(index, 1)[0]);
     }
     setOptions(newOptions);
-  }, []);
+  }, [question]);
+
+  const onSubmit = () => {
+    submitAnswer(selected);
+    setAnswered(true);
+  };
+
+  const checkColor = (item) => {
+    if (item === question.correct && item === selected) {
+      return 'success';
+    }
+    if (item === question.correct) {
+      return 'danger';
+    }
+    if (item === selected) {
+      return 'warning';
+    }
+    return 'primary';
+  };
 
   return (
     <div>
@@ -28,14 +49,28 @@ const Question = ({ question, submitAnswer }) => {
         </h2>
       </Row>
       <Row>
-        <ButtonGroup vertical size="lg">
-          {options.map((item) => (
-            <Button onClick={() => setSelected(item)} key={item}>{item}</Button>
-          ))}
-        </ButtonGroup>
+        {answered
+          ? (
+            <ButtonGroup vertical size="lg">
+              {options.map((item) => (
+                <Button disabled variant={checkColor(item)} key={item}>{item}</Button>
+              ))}
+            </ButtonGroup>
+          ) : (
+            <ButtonGroup vertical size="lg">
+              {options.map((item) => (
+                <Button onClick={() => setSelected(item)} key={item}>{item}</Button>
+              ))}
+            </ButtonGroup>
+          )}
       </Row>
       <Row>
-        <Button disabled={!selected} onClick={() => submitAnswer(selected)}>Submit Answer</Button>
+        {answered
+          ? (
+            <Button onClick={nextQuestion}>Next Question</Button>
+          ) : (
+            <Button disabled={!selected} onClick={onSubmit}>Submit Answer</Button>
+          )}
       </Row>
     </div>
   );
@@ -50,4 +85,5 @@ Question.propTypes = {
     correct: PropTypes.string.isRequired,
   }).isRequired,
   submitAnswer: PropTypes.func.isRequired,
+  nextQuestion: PropTypes.func.isRequired,
 };
