@@ -12,7 +12,7 @@ const Header = ({ score }) => (
     <Navbar.Toggle aria-controls="header-navbar" />
     <Navbar.Collapse id="header-navbar">
       <Nav>
-        <LinkContainer to="/">
+        <LinkContainer to="/scores">
           <Nav.Link>Scores</Nav.Link>
         </LinkContainer>
       </Nav>
