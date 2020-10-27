@@ -21,9 +21,7 @@ const ScoresPage = () => {
       <ul>
         {highScores.map((item) => (
           <li key={item.id}>
-            <span>{item.name}</span>
-            -
-            <span>{item.score}</span>
+            <span>{item.name}</span> - <span>{item.score}</span>
           </li>
         ))}
       </ul>

@@ -27,6 +27,6 @@ class Api::HighScoresController < ApplicationController
   private
 
   def high_score_params
-    params.require(:high_score).permit(:name, :score)
+    params.permit(:name, :score)
   end
 end
