@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React from 'react';
+import PropTypes from 'prop-types';
 import Jumbotron from 'react-bootstrap/Jumbotron';
 import { LinkContainer } from 'react-router-bootstrap';
 import Button from 'react-bootstrap/Button';
 
-const Home = ({setScore}) => {
+const Home = ({ setScore }) => {
   const startTrivia = () => {
     setScore(0);
   };
@@ -21,3 +21,7 @@ const Home = ({setScore}) => {
 };
 
 export default Home;
+
+Home.propTypes = {
+  setScore: PropTypes.func.isRequired,
+};
