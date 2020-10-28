@@ -28,6 +28,7 @@ html, body, .outer {
 
 .footer {
   flex-shrink: 0;
+  margin-left: 20px;
 }
 
 .question {
@@ -36,4 +37,8 @@ html, body, .outer {
 
 .bottom {
   margin-top: 30px;
+}
+
+.scores {
+  width: 300px;
 }
