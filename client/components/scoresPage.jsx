@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import Jumbotron from 'react-bootstrap/Jumbotron';
 import Button from 'react-bootstrap/Button';
+import ListGroup from 'react-bootstrap/ListGroup';
+import Col from 'react-bootstrap/Col';
+import Row from 'react-bootstrap/Row';
 
 const ScoresPage = () => {
   const [highScores, setHighScores] = useState([]);
@@ -34,14 +37,20 @@ const ScoresPage = () => {
   return (
     <Jumbotron>
       <h1>Scores</h1>
-      <ul>
+      <ListGroup className="scores">
         {highScores.map((item) => (
-          <li key={item.id}>
-            <span>{item.name}</span> - <span>{item.score}</span>
-            <Button size="sm" variant="danger" onClick={() => removeScore(item.id)}>X</Button>
-          </li>
+          <ListGroup.Item key={item.id}>
+            <Row>
+              <Col sm={8}>
+                <span>{item.name}</span> - <span>{item.score}</span>
+              </Col>
+              <Col sm={{ span: 1, offset: 1 }}>
+                <Button size="sm" variant="danger" onClick={() => removeScore(item.id)}>X</Button>
+              </Col>
+            </Row>
+          </ListGroup.Item>
         ))}
-      </ul>
+      </ListGroup>
     </Jumbotron>
   );
 };

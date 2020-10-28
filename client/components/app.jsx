@@ -14,25 +14,21 @@ const app = () => {
   const [score, setScore] = useState(0);
   return (
     <BrowserRouter>
-      <Container>
+      <Container className="content">
         <Header score={score} />
-        <Row>
-          <Switch>
-            <Route path="/trivia">
-              <QuestionPage setScore={setScore} score={score} />
-            </Route>
-            <Route path="/scores">
-              <ScoresPage />
-            </Route>
-            <Route path="/">
-              <Home setScore={setScore} />
-            </Route>
-          </Switch>
-        </Row>
-        <Row>
-          <Footer />
-        </Row>
+        <Switch>
+          <Route path="/trivia">
+            <QuestionPage setScore={setScore} score={score} />
+          </Route>
+          <Route path="/scores">
+            <ScoresPage />
+          </Route>
+          <Route path="/">
+            <Home setScore={setScore} />
+          </Route>
+        </Switch>
       </Container>
+      <Footer />
     </BrowserRouter>
   );
 };
