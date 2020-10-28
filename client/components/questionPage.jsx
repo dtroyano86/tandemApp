@@ -20,7 +20,7 @@ const QuestionPage = ({ setScore, score }) => {
     const potentials = [];
     trivia.forEach((item) => potentials.push(item));
     const questions = [];
-    while (questions.length < 1) {
+    while (questions.length < 10) {
       const index = Math.floor(Math.random() * potentials.length);
       questions.push(potentials.splice(index, 1)[0]);
     }
