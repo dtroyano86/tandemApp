@@ -29,14 +29,11 @@ const Question = ({ question, submitAnswer, nextQuestion }) => {
   };
 
   const checkColor = (item) => {
-    if (item === question.correct && item === selected) {
+    if (item === question.correct) {
       return 'success';
     }
-    if (item === question.correct) {
-      return 'danger';
-    }
     if (item === selected) {
-      return 'warning';
+      return 'danger';
     }
     return 'primary';
   };

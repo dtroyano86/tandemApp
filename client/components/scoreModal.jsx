@@ -15,7 +15,8 @@ const ScoreModal = ({
   const [name, setName] = useState('');
   const [redirect, setRedirect] = useState(false);
 
-  const submitScore = () => {
+  const submitScore = (e) => {
+    e.preventDefault();
     const newScore = { name, score };
     fetch('/api/high_scores', {
       method: 'POST',
@@ -51,9 +52,13 @@ const ScoreModal = ({
             ))}
         </Modal.Body>
         <Modal.Footer>
-          <Form>
+          <Form onSubmit={submitScore}>
             <Form.Group>
-              <Form.Control value={name} onChange={changeHandler} placeholder="Enter name" />
+              <Form.Control
+                value={name}
+                onChange={changeHandler}
+                placeholder="Enter name"
+              />
             </Form.Group>
             <Button onClick={submitScore}>Submit Score</Button>
           </Form>
