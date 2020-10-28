@@ -23,7 +23,7 @@ default: &default
 
 development:
   <<: *default
-  database: tandemApp_development
+  database: tandem_app_development
   username: <%= ENV["DB_USER"] %>
   password: <%= ENV["DB_PASSWORD"] %>
   # The specified database role being used to connect to postgres.
@@ -56,7 +56,7 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: tandemApp_test
+  database: tandem_app_test
   username: <%= ENV["DB_USER"] %>
   password: <%= ENV["DB_PASSWORD"] %>
 # As with config/credentials.yml, you never want to store sensitive information,
@@ -80,6 +80,6 @@ test:
 #
 production:
   <<: *default
-  database: tandemApp_production
+  database: tandem_app_production
   username: tandemApp
   password: <%= ENV['TANDEMAPP_DATABASE_PASSWORD'] %>
