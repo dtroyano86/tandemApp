@@ -29,3 +29,11 @@ html, body, .outer {
 .footer {
   flex-shrink: 0;
 }
+
+.question {
+  justify-content: center;
+}
+
+.bottom {
+  margin-top: 30px;
+}

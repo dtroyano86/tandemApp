@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import Button from 'react-bootstrap/Button';
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
 const Question = ({
   question,
@@ -53,7 +54,7 @@ const Question = ({
           {question.question}
         </h3>
       </Row>
-      <Row>
+      <Row className="question">
         {answered
           ? (
             <ButtonGroup vertical size="lg">
@@ -69,7 +70,7 @@ const Question = ({
             </ButtonGroup>
           )}
       </Row>
-      <Row>
+      <Row className="question bottom">
         {answered
           ? (
             <Button onClick={nextQuestion}>Next Question</Button>
