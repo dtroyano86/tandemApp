@@ -4,7 +4,12 @@ import Button from 'react-bootstrap/Button';
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import Row from 'react-bootstrap/Row';
 
-const Question = ({ question, submitAnswer, nextQuestion }) => {
+const Question = ({
+  question,
+  submitAnswer,
+  nextQuestion,
+  score,
+}) => {
   const [selected, setSelected] = useState(false);
   const [options, setOptions] = useState([]);
   const [answered, setAnswered] = useState(false);
@@ -41,9 +46,12 @@ const Question = ({ question, submitAnswer, nextQuestion }) => {
   return (
     <div>
       <Row>
-        <h2>
+        <h2>Score: {score}</h2>
+      </Row>
+      <Row>
+        <h3>
           {question.question}
-        </h2>
+        </h3>
       </Row>
       <Row>
         {answered
@@ -83,4 +91,5 @@ Question.propTypes = {
   }).isRequired,
   submitAnswer: PropTypes.func.isRequired,
   nextQuestion: PropTypes.func.isRequired,
+  score: PropTypes.number.isRequired,
 };

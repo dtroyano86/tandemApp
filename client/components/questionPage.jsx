@@ -73,6 +73,7 @@ const QuestionPage = ({ setScore, score }) => {
               submitAnswer={submitAnswer}
               question={questionList[current]}
               nextQuestion={nextQuestion}
+              score={score}
             />
           )}
       </Jumbotron>

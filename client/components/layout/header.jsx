@@ -16,12 +16,6 @@ const Header = ({ score }) => (
           <Nav.Link>Scores</Nav.Link>
         </LinkContainer>
       </Nav>
-      <Navbar.Text>
-        Score:
-        <span>
-          {score}
-        </span>
-      </Navbar.Text>
     </Navbar.Collapse>
   </Navbar>
 );
